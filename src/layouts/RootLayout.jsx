@@ -10,10 +10,10 @@ export default function RootLayout() {
       {/* sidebar */}
       <GridItem
         as="aside"
-        colSpan={{ base: 6, lg: 2, xl: 1 }} 
+        colSpan="1"
         bg="purple.400"
-        minHeight={{ lg: '100vh' }}
-        p={{ base: '20px', lg: '30px' }}
+        minHeight="100hv"
+        p="30px"
       >
         <span>sidebar</span>
       </GridItem>
@@ -21,7 +21,7 @@ export default function RootLayout() {
       {/* main content & navbar */}
       <GridItem
         as="main"
-        colSpan={{ base: 6, lg: 4, xl: 5 }} 
+        colSpan="5"
         p="40px"
       >
         <Navbar />
