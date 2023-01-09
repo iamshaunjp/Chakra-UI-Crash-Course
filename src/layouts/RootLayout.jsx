@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom"
 
 // components
 import Navbar from "../components/Navbar"
+import Sidebar from "../components/Sidebar"
 
 export default function RootLayout() {
   return (
@@ -15,7 +16,7 @@ export default function RootLayout() {
         minHeight={{ lg: '100vh' }}
         p={{ base: '20px', lg: '30px' }}
       >
-        <span>sidebar</span>
+        <Sidebar />
       </GridItem>
 
       {/* main content & navbar */}
