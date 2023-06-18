@@ -12,7 +12,11 @@ export default function Dashboard() {
       color: 'black',
     },
     filter: 'blur(2px)'
+    
   }
+  /*In Chakra UI, the "sx" prop refers to the custom style object that can be used to apply additional styles or override default styles of components. The "sx" property allows you to write inline styles in a simpler syntax than traditional CSS. You can use this to apply various styles to the component, such as color, margin, padding, height, width and other styles.
+
+In the code you provided, the "sx" prop is used to apply custom styles to the Box component. The "boxStyles" object contains various properties such as padding, background color, margin, textAlign, hover etc that has been passed to sx. This allows for easy customization of the Box component. */
 
   return (
     <Container as="section" maxWidth="4xl" py="20px">
