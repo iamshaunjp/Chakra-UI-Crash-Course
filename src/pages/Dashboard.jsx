@@ -7,7 +7,12 @@ export default function Dashboard() {
     bg: "purple.400",
     c: "white",
     m: "10px",
-    textAlign: "center"
+    textAlign: "center",
+    filter: 'blur(2px)',
+    ':hover': {
+      color: 'black',
+      bg: 'blue.500'
+    }
   }
 
   return (
