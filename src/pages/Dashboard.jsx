@@ -1,5 +1,7 @@
+import { Heading } from "@chakra-ui/react";
+
 export default function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <Heading> This is Dashboard </Heading>
   )
 }
