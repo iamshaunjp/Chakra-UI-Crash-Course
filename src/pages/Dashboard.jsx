@@ -23,7 +23,7 @@ export default function Dashboard() {
 
       <Box my="30px" bg="orange" p="20px">
         <Text color="white">
-          This is a box
+          This is a box1
         </Text>
       </Box>
 
