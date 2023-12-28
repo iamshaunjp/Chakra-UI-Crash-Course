@@ -1,19 +1,22 @@
 import { Container, Heading, Text, Box, SimpleGrid } from "@chakra-ui/react";
+import { useLoaderData } from "react-router-dom";
 
 export default function Dashboard() {
 
-  const boxStyles = {
-    p: "20px",
-    bg: "purple.400",
-    c: "white",
-    m: "10px",
-    textAlign: "center",
-    filter: 'blur(2px)',
-    ':hover': {
-      color: 'black',
-      bg: 'blue.500'
-    }
-  }
+  // const boxStyles = {
+  //   p: "20px",
+  //   bg: "purple.400",
+  //   c: "white",
+  //   m: "10px",
+  //   textAlign: "center",
+  //   filter: 'blur(2px)',
+  //   ':hover': {
+  //     color: 'black',
+  //     bg: 'blue.500'
+  //   }
+  // }
+
+  const tasks = useLoaderData()
 
   return (
     /*
@@ -42,16 +45,25 @@ export default function Dashboard() {
     */
    <>
     <SimpleGrid p="10px" spacing={10} minChildWidth="250px">
-      <Box bg="white" h="200px" border={"1px solid"}></Box>
-      <Box bg="white" h="200px" border={"1px solid"}></Box>
-      <Box bg="white" h="200px" border={"1px solid"}></Box>
-      <Box bg="white" h="200px" border={"1px solid"}></Box>
-      
-      <Box bg="white" h="200px" border={"1px solid"}></Box>
-      <Box bg="white" h="200px" border={"1px solid"}></Box>
-      <Box bg="white" h="200px" border={"1px solid"}></Box>
-      <Box bg="white" h="200px" border={"1px solid"}></Box>
+      {tasks && tasks.map((task) => (
+        <div key={task.id}>{task.title}</div>
+      ))}
     </SimpleGrid>
    </>
   );
+}
+
+{/* <Box bg="white" h="200px" border={"1px solid"}></Box>
+<Box bg="white" h="200px" border={"1px solid"}></Box>
+<Box bg="white" h="200px" border={"1px solid"}></Box>
+<Box bg="white" h="200px" border={"1px solid"}></Box>
+
+<Box bg="white" h="200px" border={"1px solid"}></Box>
+<Box bg="white" h="200px" border={"1px solid"}></Box>
+<Box bg="white" h="200px" border={"1px solid"}></Box>
+<Box bg="white" h="200px" border={"1px solid"}></Box> */}
+export const tasksLoader = async () => {
+  const res = await fetch('http:localhost:3000/tasks')
+
+  return res.json()
 }
