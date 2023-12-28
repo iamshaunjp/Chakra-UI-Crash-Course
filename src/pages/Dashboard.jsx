@@ -1,8 +1,22 @@
-import { Container, Heading, Text, Box, SimpleGrid } from "@chakra-ui/react";
+import { EditIcon, ViewIcon } from "@chakra-ui/icons";
+import {
+  Flex,
+  Container,
+  Heading,
+  Text,
+  Box,
+  SimpleGrid,
+  CardHeader,
+  CardBody,
+  Card,
+  CardFooter,
+  HStack,
+  Button,
+  Divider,
+} from "@chakra-ui/react";
 import { useLoaderData } from "react-router-dom";
 
 export default function Dashboard() {
-
   // const boxStyles = {
   //   p: "20px",
   //   bg: "purple.400",
@@ -16,7 +30,7 @@ export default function Dashboard() {
   //   }
   // }
 
-  const tasks = useLoaderData()
+  const tasks = useLoaderData();
 
   return (
     /*
@@ -43,17 +57,50 @@ export default function Dashboard() {
       </Box>
     </Container>
     */
-   <>
-    <SimpleGrid p="10px" spacing={10} minChildWidth="250px">
-      {tasks && tasks.map((task) => (
-        <div key={task.id}>{task.title}</div>
-      ))}
-    </SimpleGrid>
-   </>
+    <>
+      <SimpleGrid p="10px" spacing={10} minChildWidth="250px">
+        {tasks &&
+          tasks.map((task) => (
+            <Card key={task.id} borderTop={"8px"} borderColor={"purple.400"} bg={"white"}>
+              <CardHeader color={"gray.700"}>
+                <Flex gap={5}>
+                  <Box w="50px" h="50px">
+                    <Text>AV</Text>
+                  </Box>
+                  <Box>
+                    <Heading as="h3" size="sm">
+                      {task.title}
+                    </Heading>
+                    <Text>by {task.author}</Text>
+                  </Box>
+                </Flex>
+              </CardHeader>
+
+              <CardBody color="gray.500">
+                <Text>{task.description}</Text>
+              </CardBody>
+
+              <Divider borderColor={"gray.200"} />
+
+              <CardFooter>
+                <HStack>
+                  <Button variant="ghost" leftIcon={<ViewIcon />}>
+                    Watch
+                  </Button>
+                  <Button variant="ghost" rightIcon={<EditIcon />}>
+                    Comment
+                  </Button>
+                </HStack>
+              </CardFooter>
+            </Card>
+          ))}
+      </SimpleGrid>
+    </>
   );
 }
 
-{/* <Box bg="white" h="200px" border={"1px solid"}></Box>
+{
+  /* <Box bg="white" h="200px" border={"1px solid"}></Box>
 <Box bg="white" h="200px" border={"1px solid"}></Box>
 <Box bg="white" h="200px" border={"1px solid"}></Box>
 <Box bg="white" h="200px" border={"1px solid"}></Box>
@@ -61,9 +108,10 @@ export default function Dashboard() {
 <Box bg="white" h="200px" border={"1px solid"}></Box>
 <Box bg="white" h="200px" border={"1px solid"}></Box>
 <Box bg="white" h="200px" border={"1px solid"}></Box>
-<Box bg="white" h="200px" border={"1px solid"}></Box> */}
-export const tasksLoader = async () => {
-  const res = await fetch('http:localhost:3000/tasks')
-
-  return res.json()
+<Box bg="white" h="200px" border={"1px solid"}></Box> */
 }
+export const tasksLoader = async () => {
+  const res = await fetch("http://localhost:3000/tasks");
+
+  return res.json();
+};

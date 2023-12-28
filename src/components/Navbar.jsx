@@ -10,7 +10,7 @@ import {
 
 export default function Navbar() {
   return (
-    <Flex as="nav" p="10px" alignItems="center">
+    <Flex as="nav" p="10px" mb={"40px"} alignItems="center">
       <Heading as="h1">Dojo Tasks</Heading>
 
       <Spacer />

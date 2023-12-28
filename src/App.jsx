@@ -16,7 +16,7 @@ import Profile from './pages/Profile'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route index element={<Dashboard />} loader={tasksLoader}/>
+      <Route index element={<Dashboard />} loader={tasksLoader} />
       <Route path="create" element={<Create />} />
       <Route path="profile" element={<Profile />} />
       {/* <Route path="navbar" element={<Navbar/>} /> */}
