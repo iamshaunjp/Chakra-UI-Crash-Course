@@ -1,0 +1,1 @@
+json-server -w ./data/db.json
