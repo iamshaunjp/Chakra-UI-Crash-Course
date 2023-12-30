@@ -19,7 +19,7 @@
        "title":"Update the contact form",
        "description":"The contact form is not working properly. We need to fix the form validation and make sure the form submissions are being sent to the correct email address.",
        "author":"Peach",
-       "img": "/img/peac.png"
+       "img": "/img/peach.png"
     },
     {
        "id":4,
